@@ -19,7 +19,9 @@ const Form = () => {
       lastName: stateSecond,
     };
     dispatch(handleAddItem(todoItem));
-    return setStateTodo([...stateTodo, todoItem]);
+    setStateTodo([...stateTodo, todoItem]);
+    setStateFirst(''); // Очистить поле после добавления
+    setStateSecond(''); // Очистить поле после добавления
   };
 
   return (
@@ -31,14 +33,14 @@ const Form = () => {
           onChange={e => setStateFirst(e.target.value)}
           value={stateFirst}
           style={{ border: '1px solid red' }}
-          placeholder="text"
+          placeholder="text1"
         />
         <input
           type="text"
           onChange={e => setStateSecond(e.target.value)}
           value={stateSecond}
           style={{ border: '1px solid red' }}
-          placeholder="text"
+          placeholder="text2"
         />
         <BtnForm />
       </form>
