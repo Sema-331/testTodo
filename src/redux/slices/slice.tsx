@@ -20,8 +20,11 @@ const todoSlice = createSlice({
     handleAddItem(state, action) {
       state.todoArr.push(action.payload);
     },
+    handleDeleteItem(state, action) {
+      state.todoArr = state.todoArr.filter(item => item.id !== action.payload);
+    },
   },
 });
 
-export const { handleAddItem } = todoSlice.actions;
+export const { handleAddItem, handleDeleteItem } = todoSlice.actions;
 export default todoSlice.reducer;

@@ -3,14 +3,20 @@ import Items from './Items';
 import AnyOptions from './AnyOptions';
 import Container from './Containers/Container';
 import Form from './Form';
+import TestAsync from './async/TestAsync';
+import MainTodo from './OptimizTodo/MainTodo';
 
 const MainComponent = () => {
   return (
-    <Container>
-      <Form />
-      <Items />
-      <AnyOptions />
-    </Container>
+    <>
+      <MainTodo />
+      <Container>
+        <Form />
+        <Items />
+        <AnyOptions />
+        <TestAsync />
+      </Container>
+    </>
   );
 };
 

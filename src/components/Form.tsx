@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import BtnForm from './BtnForm';
 import { TodoListInt } from '../Interfaces/Interface';
 import { useAppDispatch } from '../helperRedux/helperRedux';
@@ -24,20 +24,33 @@ const Form = () => {
     setStateSecond(''); // Очистить поле после добавления
   };
 
+  const aa = useCallback((e: any) => {
+    console.log(e.target.value);
+    setStateFirst(e.target.value);
+  }, []);
+
+  console.log('form');
+
   return (
     <div>
+      <button type="button" onClick={() => console.log('clcil')}>
+        CLICL RANDOM
+      </button>
       <p>Form</p>
       <form onSubmit={addTodo} action="">
         <input
           type="text"
-          onChange={e => setStateFirst(e.target.value)}
+          onChange={aa}
           value={stateFirst}
           style={{ border: '1px solid red' }}
           placeholder="text1"
         />
         <input
           type="text"
-          onChange={e => setStateSecond(e.target.value)}
+          onChange={e => {
+            console.log(e.target.value);
+            setStateSecond(e.target.value);
+          }}
           value={stateSecond}
           style={{ border: '1px solid red' }}
           placeholder="text2"
